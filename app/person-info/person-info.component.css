@@ -1,0 +1,13 @@
+.main__person{
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  widows: 100%;
+}
+.main__person > *{
+  width: calc(100%/3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}

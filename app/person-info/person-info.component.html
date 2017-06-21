@@ -1,0 +1,20 @@
+<div class="main__person">
+  <div class="person__info">
+    <img src="{{person.avatar_url}}" alt="" class="info__img">
+    <h4 class="info__name">{{person.name}}</h4>
+    <span class="info__company">{{person.company}}</span>
+    <span class="info__blog">{{person.blog}}</span>
+    <span class="info__admin" *ngIf="person.site_admin">Admin</span>
+  </div>
+  <div class="person__more">
+    <h4 class="more__bio" *ngIf="person.bio">{{person.bio}}</h4>
+    <h6 class="more__email" *ngIf="person.email">{{person.email}}</h6>
+    <span class="more__location" *ngIf="person.location">{{person.location}}</span>
+  </div>
+  <div class="person__account">
+    <span class="account__followers">Followers: <strong>{{public.followers}}</strong></span>
+    <span class="account__following">Following: <strong>{{public.following}}</strong></span>
+    <span class="account__create">Following: <strong>{{public.created_at}}</strong></span>
+    <span class="account__update">Following: <strong>{{public.updated_at}}</strong></span>
+  </div>
+</div>

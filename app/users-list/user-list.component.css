@@ -1,0 +1,35 @@
+.main__list{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.list__item{
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  background: #f1f1f1;
+  border: 2px solid lightgray;
+  margin: 1%;
+  cursor: pointer;
+}
+.item__info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.info__pic{
+  max-width: 200px;
+}
+.info__name{
+  font-size: 1.2em;
+  text-decoration: none;
+  color: #333;
+  transition: all .4s ease;
+}
+.list__item:hover .info__name{
+  text-decoration: underline;
+  color: #515151
+}
