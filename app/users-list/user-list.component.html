@@ -1,8 +1,10 @@
 <ul class="main__list">
   <li class="list__item" *ngFor="let user of users">
-    <a href="{{user.html_url}}" class="item__info">
+    <a routerLink="/user/{{user.login}}" class="item__info">
       <img src="{{user.avatar_url}}" alt="" class="info__pic">
       <p class="info__name">{{user.login}}</p>
     </a>
   </li>
 </ul>
+
+<!--href="{{user.html_url}}" -->

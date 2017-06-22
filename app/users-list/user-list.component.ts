@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from '../shared/user';
 import {DataService} from '../shared/data.service';
 import {Response} from "@angular/http";
@@ -8,11 +8,16 @@ import {Response} from "@angular/http";
   templateUrl: "./user-list.component.html",
   styleUrls: ['./user-list.component.css']
 })
-export class UserListComponent{
-  @Input() users: User[];
-  userAbout: any;
+export class UserListComponent implements OnInit{
+  // @Input() users: User[];
+  users: User[]=[];
+  // userAbout: any;
   constructor(private dataService: DataService){}
-  userInfo(id:string){
-    this.dataService.getMinInfo(id);
+  ngOnInit(){
+    this.dataService.getUsers().subscribe((data:Response)=>this.users=data.json());
   }
+  // userInfo(id:string){
+    // this.dataService.getMinInfo(id);
+  // }
+
 }

@@ -16,8 +16,13 @@ var data_service_1 = require("./shared/data.service");
 var person_info_component_1 = require("./person-info/person-info.component");
 var appRoutes = [
     { path: '', component: user_list_component_1.UserListComponent },
-    { path: 'person/:id', component: person_info_component_1.PersonInfoComponent }
+    { path: 'user/:id', component: person_info_component_1.PersonInfoComponent }
 ];
+// const appRoutes: Routes =[
+//     { path: '', component: HomeComponent},
+//     { path: 'about', component: AboutComponent},
+//     { path: '**', component: NotFoundComponent }
+// ];
 var AppModule = (function () {
     function AppModule() {
     }
@@ -27,6 +32,7 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, router_1.RouterModule.forRoot(appRoutes)],
         declarations: [app_component_1.AppComponent, user_list_component_1.UserListComponent, person_info_component_1.PersonInfoComponent],
+        // declarations: [ AppComponent,NotFoundComponent, AboutComponent,HomeComponent],
         providers: [data_service_1.DataService],
         bootstrap: [app_component_1.AppComponent]
     })

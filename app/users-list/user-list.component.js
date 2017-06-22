@@ -11,18 +11,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var data_service_1 = require("../shared/data.service");
 var UserListComponent = (function () {
+    // userAbout: any;
     function UserListComponent(dataService) {
         this.dataService = dataService;
+        // @Input() users: User[];
+        this.users = [];
     }
-    UserListComponent.prototype.userInfo = function (id) {
-        this.dataService.getMinInfo(id);
+    UserListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.dataService.getUsers().subscribe(function (data) { return _this.users = data.json(); });
     };
     return UserListComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Array)
-], UserListComponent.prototype, "users", void 0);
 UserListComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

@@ -10,12 +10,19 @@ import {PersonInfoComponent} from './person-info/person-info.component';
 
 const appRoutes:Routes = [
     {path: '', component: UserListComponent},
-    {path: 'person/:id', component: PersonInfoComponent}
+    {path: 'user/:id', component: PersonInfoComponent}
 ]
+
+// const appRoutes: Routes =[
+//     { path: '', component: HomeComponent},
+//     { path: 'about', component: AboutComponent},
+//     { path: '**', component: NotFoundComponent }
+// ];
 
 @NgModule({
     imports:      [ BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(appRoutes)],
     declarations: [ AppComponent, UserListComponent, PersonInfoComponent ],
+    // declarations: [ AppComponent,NotFoundComponent, AboutComponent,HomeComponent],
     providers: [DataService],
     bootstrap:    [ AppComponent ]
 })
