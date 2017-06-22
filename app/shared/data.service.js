@@ -10,8 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
-// import {Observable} from 'rxjs/Observable';
-// import 'rxjs/add/operator/map';
+require("rxjs/add/operator/map");
 var DataService = (function () {
     function DataService(http) {
         this.http = http;
@@ -23,8 +22,8 @@ var DataService = (function () {
     DataService.prototype.getUsers = function () {
         return this.http.get(this.url);
     };
-    DataService.prototype.getMinInfo = function (id) {
-        return this.http.get(this.userUrl + id);
+    DataService.prototype.getPersonInfo = function (id) {
+        return this.http.get(this.userUrl + id).map(this.parseData);
     };
     DataService.prototype.parseData = function (res) {
         var userList = res.json();

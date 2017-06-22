@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {User} from './user';
 import {Http, Response} from "@angular/http";
-// import {Observable} from 'rxjs/Observable';
-// import 'rxjs/add/operator/map';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class DataService{
@@ -14,8 +14,8 @@ export class DataService{
   getUsers(){
     return this.http.get(this.url);
   }
-  getMinInfo(id:string){
-    return this.http.get(this.userUrl+id);
+  getPersonInfo(id:string){
+    return this.http.get(this.userUrl+id).map(this.parseData);
   }
   private parseData(res:Response){
     let userList = res.json();
