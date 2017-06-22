@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: stretch;
   width: auto;
+  max-width: 75%;
   background: #f1f1f1;
   border: 1px solid lightgray;
 }
@@ -24,4 +25,8 @@
 }
 .info__name, .info__company, .info__blog{
   text-align: center;
+}
+.main__person .person__more{
+  justify-content: flex-start;
+  padding: 0 1em;
 }

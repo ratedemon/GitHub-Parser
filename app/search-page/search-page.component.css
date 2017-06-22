@@ -1,0 +1,29 @@
+.search__box{
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+.search__list{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.search__box .material-icons{
+  font-size: 1.5em;
+}
+.list__item{
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column;
+}
+.info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.item__image{
+  max-width: 200px;
+}

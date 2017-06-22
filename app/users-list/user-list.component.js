@@ -11,15 +11,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var data_service_1 = require("../shared/data.service");
 var UserListComponent = (function () {
-    // userAbout: any;
     function UserListComponent(dataService) {
         this.dataService = dataService;
         // @Input() users: User[];
         this.users = [];
+        this.fullList = [];
+        this.counter = 0;
     }
     UserListComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.dataService.getUsers().subscribe(function (data) { return _this.users = data.json(); });
+        this.counter++;
+        this.dataService.getUsers(this.counter).subscribe(function (data) {
+            _this.users = data.json();
+            _this.fullList = [].concat(_this.users);
+            _this.users.forEach(function (el, i) {
+                _this.counter = el.id;
+            });
+        });
+    };
+    UserListComponent.prototype.paginationsAdd = function () {
+        var _this = this;
+        this.dataService.getUsers(this.counter).subscribe(function (data) {
+            _this.users = data.json();
+            _this.fullList = _this.fullList.concat(_this.users);
+            _this.users.forEach(function (el, i) {
+                _this.counter = el.id;
+            });
+        });
     };
     return UserListComponent;
 }());

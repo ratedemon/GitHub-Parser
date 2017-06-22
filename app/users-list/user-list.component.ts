@@ -11,13 +11,27 @@ import {Response} from "@angular/http";
 export class UserListComponent implements OnInit{
   // @Input() users: User[];
   users: User[]=[];
-  // userAbout: any;
+  fullList: User[] = [];
+  counter=0;
   constructor(private dataService: DataService){}
   ngOnInit(){
-    this.dataService.getUsers().subscribe((data:Response)=>this.users=data.json());
+    this.counter++;
+    this.dataService.getUsers(this.counter).subscribe((data:Response)=>
+    {
+      this.users=data.json();
+      this.fullList = [].concat(this.users);
+      this.users.forEach((el,i)=>{
+        this.counter = el.id;   
+      })
+    });
   }
-  // userInfo(id:string){
-    // this.dataService.getMinInfo(id);
-  // }
-
+  paginationsAdd(){
+    this.dataService.getUsers(this.counter).subscribe((data:Response)=>{
+      this.users=data.json();
+      this.fullList = this.fullList.concat(this.users);
+      this.users.forEach((el,i)=>{
+        this.counter = el.id;   
+      })
+    });
+  }
 }

@@ -12,6 +12,7 @@
   border: 2px solid lightgray;
   margin: 1%;
   cursor: pointer;
+  position: relative
 }
 .item__info{
   display: flex;
@@ -21,7 +22,8 @@
   text-decoration: none;
 }
 .info__pic{
-  max-width: 200px;
+  width: 200px;
+  /*max-width: 20px;*/
 }
 .info__name{
   font-size: 1.2em;
@@ -32,4 +34,22 @@
 .list__item:hover .info__name{
   text-decoration: underline;
   color: #515151
+}
+.item__number{
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1em;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  color: white;
+  background: rgba(51,51,51,.5);
+  transition: all .35s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list__item:hover .item__number{
+  background: rgba(51,51,51,1);
 }

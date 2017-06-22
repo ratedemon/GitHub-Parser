@@ -7,10 +7,13 @@ import {UserListComponent} from './users-list/user-list.component';
 import {HttpModule} from '@angular/http';
 import {DataService} from './shared/data.service';
 import {PersonInfoComponent} from './person-info/person-info.component';
+import {ScrollDirective} from './users-list/scroll.directive';
+import {SearchPageComponent} from './search-page/search-page.component';
 
 const appRoutes:Routes = [
     {path: '', component: UserListComponent},
-    {path: 'user/:id', component: PersonInfoComponent}
+    {path: 'search', component: SearchPageComponent},
+    {path: 'user/:id', component: PersonInfoComponent},    
 ]
 
 // const appRoutes: Routes =[
@@ -21,7 +24,7 @@ const appRoutes:Routes = [
 
 @NgModule({
     imports:      [ BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(appRoutes)],
-    declarations: [ AppComponent, UserListComponent, PersonInfoComponent ],
+    declarations: [ AppComponent, UserListComponent, PersonInfoComponent, ScrollDirective, SearchPageComponent ],
     // declarations: [ AppComponent,NotFoundComponent, AboutComponent,HomeComponent],
     providers: [DataService],
     bootstrap:    [ AppComponent ]

@@ -16,11 +16,6 @@ var AppComponent = (function () {
         this.title = "GitHub Users";
         this.users = [];
     }
-    AppComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        console.log('Begin');
-        this.dataService.getUsers().subscribe(function (data) { return _this.users = data.json(); });
-    };
     return AppComponent;
 }());
 __decorate([

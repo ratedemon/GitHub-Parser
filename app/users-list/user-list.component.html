@@ -1,10 +1,11 @@
-<ul class="main__list">
-  <li class="list__item" *ngFor="let user of users">
+<ul class="main__list" >
+  <li class="list__item" *ngFor="let user of fullList">
+    <span class="item__number">{{user.id}}</span>
     <a routerLink="/user/{{user.login}}" class="item__info">
       <img src="{{user.avatar_url}}" alt="" class="info__pic">
       <p class="info__name">{{user.login}}</p>
     </a>
   </li>
 </ul>
-
+<button (click)="paginationsAdd()" scrolling>Show more</button>
 <!--href="{{user.html_url}}" -->

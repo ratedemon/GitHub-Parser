@@ -1,0 +1,16 @@
+<form class="search__box" #myForm="ngForm" novalidate>
+  <input type="text" class="search_input" [(ngModel)]="myForm.name" (keyup)="searchPeople(myForm.name)" [ngModelOptions]="{standalone: true}">
+  <button class="search__btn" (submit)="searchPeople(myForm).name" [disabled]="myForm.invalid">
+    <i class="material-icons">search</i>
+  </button>
+</form>
+<span class="total">Найдено: {{totalFound}}</span>
+<ol class="search__list">
+  <li class="list__item" *ngFor="let user of users">
+    <img src="{{user?.avatar_url}}" alt="" class="item__image">
+    <div class="info">
+      <a routerLink="/user/{{user.login}}" class="info__login">{{user?.login}}</a>
+      <a href="{{user?.html_url}}">Page on GitHub</a>
+    </div>
+  </li>
+</ol>

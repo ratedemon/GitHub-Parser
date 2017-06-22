@@ -14,16 +14,33 @@ require("rxjs/add/operator/map");
 var DataService = (function () {
     function DataService(http) {
         this.http = http;
-        // users: User[] = [];
-        this.counter = 1;
-        this.url = "https://api.github.com/users?since=" + this.counter;
-        this.userUrl = 'https://api.github.com/users/';
+        this.gitUrl = "https://api.github.com";
+        this.url = this.gitUrl + "/users?since=";
+        this.userUrl = this.gitUrl + '/users/';
+        this.searchUrl = this.gitUrl + '/search/users?q=';
     }
-    DataService.prototype.getUsers = function () {
-        return this.http.get(this.url);
+    DataService.prototype.getUsers = function (counter) {
+        var headers = new http_1.Headers();
+        this.createAuthorizationHeader(headers);
+        return this.http.get(this.url + counter, { headers: headers });
+    };
+    DataService.prototype.createAuthorizationHeader = function (headers) {
+        headers.append('Authorization', 'Basic ' + btoa('ratedemon:demon13'));
     };
     DataService.prototype.getPersonInfo = function (id) {
-        return this.http.get(this.userUrl + id).map(this.parseData);
+        var headers = new http_1.Headers();
+        this.createAuthorizationHeader(headers);
+        return this.http.get(this.userUrl + id, { headers: headers }).map(this.parseData);
+    };
+    DataService.prototype.searchUser = function (name) {
+        var headers = new http_1.Headers();
+        this.createAuthorizationHeader(headers);
+        console.log(this.searchUrl + name, name);
+        return this.http.get(this.searchUrl + name, { headers: headers }).map(function (data) {
+            var userList = data.json().items;
+            var total = data.json().total_count;
+            return { users: userList, total: total };
+        });
     };
     DataService.prototype.parseData = function (res) {
         var userList = res.json();
