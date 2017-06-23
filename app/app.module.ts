@@ -9,6 +9,8 @@ import {DataService} from './shared/data.service';
 import {PersonInfoComponent} from './person-info/person-info.component';
 import {ScrollDirective} from './users-list/scroll.directive';
 import {SearchPageComponent} from './search-page/search-page.component';
+// import {VirtualScrollModule} from 'angular2-virtual-scroll';
+
 
 const appRoutes:Routes = [
     {path: '', component: UserListComponent},

@@ -16,6 +16,7 @@ var data_service_1 = require("./shared/data.service");
 var person_info_component_1 = require("./person-info/person-info.component");
 var scroll_directive_1 = require("./users-list/scroll.directive");
 var search_page_component_1 = require("./search-page/search-page.component");
+// import {VirtualScrollModule} from 'angular2-virtual-scroll';
 var appRoutes = [
     { path: '', component: user_list_component_1.UserListComponent },
     { path: 'search', component: search_page_component_1.SearchPageComponent },

@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var data_service_1 = require("../shared/data.service");
-// import {Response} from "@angular/http";
 var PersonInfoComponent = (function () {
     function PersonInfoComponent(activatedRoute, dataService) {
         var _this = this;
@@ -24,7 +23,19 @@ var PersonInfoComponent = (function () {
         var _this = this;
         // this.dataService.getPersonInfo(this.id).subscribe((data:Response)=>{this.person=data.json()});
         this.dataService.getPersonInfo(this.id).subscribe(function (data) { _this.person = data; });
+        this.dataService.getPersonRepos(this.id).subscribe(function (data) {
+            _this.personRepos = data;
+            _this.removed = _this.personRepos.splice(5);
+        });
         //  console.log(this.person);
+    };
+    PersonInfoComponent.prototype.showMore = function () {
+        var _this = this;
+        console.log(this.removed);
+        // this.personRepos = this.personRepos.concat(this.removed);
+        this.removed.forEach(function (el, i) {
+            _this.personRepos.push(el);
+        });
     };
     PersonInfoComponent.prototype.ngOnDestroy = function () {
         this.subscription.unsubscribe();

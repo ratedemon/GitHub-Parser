@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
+require("rxjs/add/operator/debounceTime");
 var DataService = (function () {
     function DataService(http) {
         this.http = http;
@@ -18,6 +19,7 @@ var DataService = (function () {
         this.url = this.gitUrl + "/users?since=";
         this.userUrl = this.gitUrl + '/users/';
         this.searchUrl = this.gitUrl + '/search/users?q=';
+        this.repos = '/repos';
     }
     DataService.prototype.getUsers = function (counter) {
         var headers = new http_1.Headers();
@@ -32,15 +34,19 @@ var DataService = (function () {
         this.createAuthorizationHeader(headers);
         return this.http.get(this.userUrl + id, { headers: headers }).map(this.parseData);
     };
+    DataService.prototype.getPersonRepos = function (id) {
+        var headers = new http_1.Headers();
+        this.createAuthorizationHeader(headers);
+        return this.http.get(this.userUrl + id + this.repos, { headers: headers }).map(this.parseData);
+    };
     DataService.prototype.searchUser = function (name) {
         var headers = new http_1.Headers();
         this.createAuthorizationHeader(headers);
-        console.log(this.searchUrl + name, name);
         return this.http.get(this.searchUrl + name, { headers: headers }).map(function (data) {
             var userList = data.json().items;
             var total = data.json().total_count;
             return { users: userList, total: total };
-        });
+        }).debounceTime(1000);
     };
     DataService.prototype.parseData = function (res) {
         var userList = res.json();
