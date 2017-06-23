@@ -7,7 +7,7 @@
 .main__person{
   display: flex;
   justify-content: center;
-  align-items: stretch;
+  align-items: flex-start;
   width: auto;
   max-width: 75%;
   background: #f1f1f1;
@@ -29,4 +29,14 @@
 .main__person .person__more{
   justify-content: flex-start;
   padding: 0 1em;
+}
+.more__repos, .repos__item{
+  display: flex;
+  /*list-style: none;*/
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+.repos__item{
+  border: 1px solid lightgray;
 }

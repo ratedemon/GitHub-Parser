@@ -1,4 +1,4 @@
-<ul class="main__list" >
+<ul class="main__list">
   <li class="list__item" *ngFor="let user of fullList">
     <span class="item__number">{{user.id}}</span>
     <a routerLink="/user/{{user.login}}" class="item__info">
@@ -6,6 +6,10 @@
       <p class="info__name">{{user.login}}</p>
     </a>
   </li>
+  <!--<virtual-scroll [items]="items" (update)="viewPortItems = $event">
+    <list-item *ngFor="let item of viewPortItems" [item]="item">
+    </list-item>
+  </virtual-scroll>-->
 </ul>
 <button (click)="paginationsAdd()" scrolling>Show more</button>
-<!--href="{{user.html_url}}" -->
+<!--href="{{user.html_url}}"  scrolling-->
