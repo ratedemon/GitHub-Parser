@@ -10,8 +10,12 @@
   align-items: flex-start;
   width: auto;
   max-width: 75%;
-  background: #f1f1f1;
   border: 1px solid lightgray;
+  padding: 0 0 1em;
+  margin: 0;
+}
+.hide{
+  display: none;
 }
 .main__person > *{
   /*width: calc(100%/3);*/

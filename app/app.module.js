@@ -15,6 +15,7 @@ var http_1 = require("@angular/http");
 var data_service_1 = require("./shared/data.service");
 var person_info_component_1 = require("./person-info/person-info.component");
 var scroll_directive_1 = require("./users-list/scroll.directive");
+var hide_directive_1 = require("./users-list/hide.directive");
 var search_page_component_1 = require("./search-page/search-page.component");
 // import {VirtualScrollModule} from 'angular2-virtual-scroll';
 var appRoutes = [
@@ -22,11 +23,6 @@ var appRoutes = [
     { path: 'search', component: search_page_component_1.SearchPageComponent },
     { path: 'user/:id', component: person_info_component_1.PersonInfoComponent },
 ];
-// const appRoutes: Routes =[
-//     { path: '', component: HomeComponent},
-//     { path: 'about', component: AboutComponent},
-//     { path: '**', component: NotFoundComponent }
-// ];
 var AppModule = (function () {
     function AppModule() {
     }
@@ -35,7 +31,7 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, router_1.RouterModule.forRoot(appRoutes)],
-        declarations: [app_component_1.AppComponent, user_list_component_1.UserListComponent, person_info_component_1.PersonInfoComponent, scroll_directive_1.ScrollDirective, search_page_component_1.SearchPageComponent],
+        declarations: [app_component_1.AppComponent, user_list_component_1.UserListComponent, person_info_component_1.PersonInfoComponent, scroll_directive_1.ScrollDirective, search_page_component_1.SearchPageComponent, hide_directive_1.HideDirective],
         // declarations: [ AppComponent,NotFoundComponent, AboutComponent,HomeComponent],
         providers: [data_service_1.DataService],
         bootstrap: [app_component_1.AppComponent]

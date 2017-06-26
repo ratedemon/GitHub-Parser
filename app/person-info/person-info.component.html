@@ -1,27 +1,27 @@
-<div class="main__person">
-  <div class="person__info">
+<div class="main__person card-panel blue darken-3 card white-text">
+  <div class="person__info card-image">
     <img src="{{person?.avatar_url}}" alt="" class="info__img">
     <h4 class="info__name">{{person?.name}}</h4>
     <span class="info__company">{{person?.company}}</span>
     <span class="info__blog">{{person?.blog}}</span>
     <!--<span class="info__admin" *ngIf="person.site_admin">Admin</span>-->
   </div>
-  <div class="person__more">
+  <div class="person__more card-content">
     <h4 class="more__bio">{{person?.bio}}</h4>
-    <a href="mailto:{{person?.email}}" class="more__email">{{person?.email}}</a>
+    <a href="mailto:{{person?.email}}" class="more__email white-text">{{person?.email}}</a>
     <span class="more__location">{{person?.location}}</span>
     <span class="more__title">Repositories: </span>
     <ul class="more__repos">
-      <li class="repos__item" *ngFor="let repos of personRepos">
-        <a href="{{repos?.html_url}}">{{repos?.full_name}}</a>
+      <li class="repos__item white-text" *ngFor="let repos of personRepos">
+        <a href="{{repos?.html_url}}" class="white-text">{{repos?.full_name}}</a>
         <span>{{repos?.language}}</span>
         <span>Created: {{repos?.created_at | date}}</span>
         <span>Last update: {{repos?.updated_at | date}}</span>        
       </li>
-      <button class="repos__btn" (click)="showMore()">Show More</button>
+      <button class="repos__btn waves-effect waves-light btn" (click)="showMore()">Show More</button>
     </ul>
   </div>
-  <div class="person__account">
+  <div class="person__account card-action">
     <span class="account__followers">Followers: <strong>{{person?.followers}}</strong></span>
     <span class="account__following">Following: <strong>{{person?.following}}</strong></span>
     <span class="account__create">Account created: <strong>{{person?.created_at | date}}</strong></span>

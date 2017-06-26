@@ -1,15 +1,15 @@
 <ul class="main__list">
-  <li class="list__item" *ngFor="let user of fullList">
-    <span class="item__number">{{user.id}}</span>
-    <a routerLink="/user/{{user.login}}" class="item__info">
+  <li class="list__item card-panel blue darken-3 card" *ngFor="let user of fullList">
+    <span class="item__number white-text">{{user.id}}</span>
+    <a routerLink="/user/{{user.login}}" class="item__info white-text " >
       <img src="{{user.avatar_url}}" alt="" class="info__pic">
       <p class="info__name">{{user.login}}</p>
     </a>
   </li>
-  <!--<virtual-scroll [items]="items" (update)="viewPortItems = $event">
+  <!--<virtual-scroll [fullList]="fullList" (update)="viewPortItems = $event">
     <list-item *ngFor="let item of viewPortItems" [item]="item">
     </list-item>
   </virtual-scroll>-->
 </ul>
-<button (click)="paginationsAdd()" scrolling>Show more</button>
+<button (click)="paginationsAdd()" class="waves-effect waves-light btn" scrolling>Show more</button>
 <!--href="{{user.html_url}}"  scrolling-->

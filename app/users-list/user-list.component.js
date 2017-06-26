@@ -41,6 +41,10 @@ var UserListComponent = (function () {
     };
     return UserListComponent;
 }());
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Array)
+], UserListComponent.prototype, "fullList", void 0);
 UserListComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

@@ -1,7 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Output, OnInit} from '@angular/core';
 import {User} from '../shared/user';
 import {DataService} from '../shared/data.service';
 import {Response} from "@angular/http";
+import {VirtualScrollComponent} from "../list-item/virtual-scroll.component";
+
+
 @Component({
   moduleId: module.id,
   selector: 'user-list',
@@ -11,7 +14,7 @@ import {Response} from "@angular/http";
 export class UserListComponent implements OnInit{
   // @Input() users: User[];
   users: User[]=[];
-  fullList: User[] = [];
+  @Output() fullList: User[] = [];
   counter=0;
   constructor(private dataService: DataService){}
   ngOnInit(){

@@ -1,16 +1,20 @@
 <form class="search__box" #myForm="ngForm" novalidate>
-  <input type="text" class="search_input" [(ngModel)]="myForm.name" (keyup)="searchPeople(myForm.name)" [ngModelOptions]="{standalone: true}">
-  <button class="search__btn" (submit)="searchPeople(myForm).name" [disabled]="myForm.invalid">
+  <div class="input-field col s6">
+      <input value="Alvin" id="first_name2" [(ngModel)]="myForm.name" (keyup)="searchPeople(myForm.name)" [ngModelOptions]="{standalone: true}" type="text" class="validate search_input">
+      <label class="active" for="first_name2">Write name...</label>
+    </div>
+  <!--<input type="text" class="search_input" [(ngModel)]="myForm.name" (keyup)="searchPeople(myForm.name)" [ngModelOptions]="{standalone: true}">-->
+  <!--<button class="search__btn" (submit)="searchPeople(myForm).name" [disabled]="myForm.invalid">
     <i class="material-icons">search</i>
-  </button>
+  </button>-->
 </form>
 <span class="total">Найдено: {{totalFound}}</span>
 <ol class="search__list">
-  <li class="list__item" *ngFor="let user of users">
+  <li class="list__item card-panel blue darken-3 card" *ngFor="let user of users">
     <img src="{{user?.avatar_url}}" alt="" class="item__image">
     <div class="info">
-      <a routerLink="/user/{{user.login}}" class="info__login">{{user?.login}}</a>
-      <a href="{{user?.html_url}}">Page on GitHub</a>
+      <a routerLink="/user/{{user.login}}" class="info__login white-text">{{user?.login}}</a>
+      <a href="{{user?.html_url}}" class="white-text">Page on GitHub</a>
     </div>
   </li>
 </ol>
